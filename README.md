@@ -3,7 +3,6 @@
 
 ![Linguagens](https://github-readme-stats.vercel.app/api/top-langs/?username=thalisonwilker&layout=donut&theme=dracula)
 
-![GitHub Skyline](https://skyline.github.com/2023/thalisonwilker)
 
 > [_Nao Adentre a Noite Apenas com Ternura_](https://medium.com/@legiosextavictrix/nao-adentre-a-noite-apenas-com-ternura-789a387b05d6)
 
