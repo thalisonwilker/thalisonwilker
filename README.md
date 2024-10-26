@@ -5,6 +5,6 @@
 
 ![Linguagens](https://github-readme-stats.vercel.app/api/top-langs/?username=thalisonwilker&layout=donut&theme=dracula)
 
-> [_Nao Adentre a Noite Apenas com Ternura_](https://medium.com/@legiosextavictrix/nao-adentre-a-noite-apenas-com-ternura-789a387b05d6)
+> [_Nao Adentre a Noite Apenas com Ternura. Fúria, fúria contra a luz que já nao fulgura.](https://medium.com/@legiosextavictrix/nao-adentre-a-noite-apenas-com-ternura-789a387b05d6)
 
 ![](https://c.tenor.com/JIAJjVtoDn0AAAAC/tenor.gif)
