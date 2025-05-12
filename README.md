@@ -22,7 +22,9 @@ Prefiro a arte no amor do que a arte na guerra.
 - 🐶 Adoro cachorros (principalmente os mais calminhos)
 - 🎻 Ouvir música
 - 🖼️ As vezes gosto de obeservar a vida como um quadro vivo ao vivo
-- 🍻 Se eu não estiver em casa depois das 19h você pode me encontram bebendo sozinho em algum bar 
+- 🍻 Se eu não estiver em casa depois das 19h você pode me encontram bebendo sozinho em algum bar
+- Hacker ético
+- Ethical Social Engineering
 
 ![Thalyson Wilker GitHub stats](https://github-readme-stats.vercel.app/api?username=thalisonwilker&show_icons=true&theme=radical)
 
