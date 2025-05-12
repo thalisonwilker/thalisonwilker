@@ -2,9 +2,9 @@
 Me chamo Thalyson Wilker, nasci no ano de 1995 na cidade de Santo Antônio de Tauá interior do estado do Pará.
 Atualmente moro na periferia da cidade de Belém/PA e trabalho como programador de computadores. Sempre gostei muito de Python e Javascript, eu utilizo as duas linguagens nos meus códigos do dia a dia.
 
-No meu tempo livre gosto de ler, praticar atividades física para liberação de serotonina, sair para comer, encontrar com meus amigos, beber cervejas em bares, conversar, fazer novas amizades e dançar.
+No meu tempo livre, gosto de atividades que aumentam a serotonina, dopamina e endorfina, como por exemplo: ler, ir ao cinema, ao teatro, a praia, visitar praças, praticar atividades física, sair para comer, encontrar com meus amigos, beber cerveja em bares, conversar, fazer novas amizades, ouvir novas histórias e dançar.
 
-Adoro conhecer novas culturas, novos ritmos, e adoro todas as formas de artes.
+Adoro conhecer novas culturas, novos sotauqes, novos ritmos, e adoro todas as formas de artes.
 
 Prefiro a arte no amor do que a arte na guerra.
 
