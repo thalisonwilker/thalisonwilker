@@ -8,9 +8,6 @@ Adoro conhecer novas culturas, novos sotauqes, novos ritmos, e adoro todas as fo
 
 Prefiro a arte no amor do que a arte na guerra.
 
-- Poeta
-- Dançarino
-- Cozinheiro
 - 💙🤍 Torcedor do Paysandu <img width="30" height="25" src="https://ssl.gstatic.com/onebox/media/sports/logos/1aw29215gcFtsyu07fCifw_64x64.png" />
 - 🚶‍♂️ Gosto de passear pela cidade
 - 🎥 Assistir a filmes no [cineliberoluxardo](https://www.instagram.com/cineliberoluxardo/)
@@ -22,9 +19,12 @@ Prefiro a arte no amor do que a arte na guerra.
 - 🐶 Adoro cachorros (principalmente os mais calminhos)
 - 🎻 Ouvir música
 - 🖼️ As vezes gosto de obeservar a vida como um quadro vivo ao vivo
+- ✍️ Poeta
+- 🕺 Dançarino
+- 👨‍🍳 Cozinheiro
 - 🍻 Se eu não estiver em casa depois das 19h você pode me encontram bebendo sozinho em algum bar
-- Hacker ético
-- Ethical Social Engineering
+- 👨‍💻 Hacker ético
+- 🧐 Ethical Social Engineering
 
   <center>
 
