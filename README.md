@@ -1,11 +1,17 @@
 # <center>$ whoami </center>
-Trabalho como programador back-end em uma empresa de tecnologia de Belém do Pará, sempre buscando desenvolver soluções inovadoras e que façam sentido na época em que vivo e também pensando um pouco na próxima que virá.
-Me sinto muito feliz em fazer parte de um ecossistema tão rico de inovação, criatividade, empreendedorismo e pessoas incríveis, como é o ecossistema de inovação do Norte do Brasil e da Amazônia.
-Durante meu tempo livre eu gosto de ler, ir ao cinema, ouvir música no parque, andar de bicicleta, tomar uma boa cerveja em algum bar e conhecer novas pessoas, ouvir novas histórias e conhecer novos sorrisos.
-Eu diria que fazer novas amizades é uma das coisas que mais amo na vida.
+Me chamo Thalyson Wilker, nasci no ano de 1995 na cidade de Santo Antônio de Tauá interior do estado do Pará.
+Atualmente moro na periferia da cidade de Belém/PA e trabalho como programador de computadores. Sempre gostei muito de Python e Javascript, eu utilizo as duas linguagens nos meus códigos do dia a dia.
 
+No meu tempo livre gosto de ler, sair para comer, encontrar com meus amigos, beber cervejas em bares, conversar, fazer novas amizades e dançar.
+
+Adoro conhecer novas culturas, novos ritmos, e adoro todas as formas de artes.
+
+Prefiro a arte no amor do que a arte na guerra.
+
+- Poeta
+- Dançarino
+- Cozinheiro
 - 💙🤍 Torcedor do Paysandu <img width="30" height="25" src="https://ssl.gstatic.com/onebox/media/sports/logos/1aw29215gcFtsyu07fCifw_64x64.png" />
-- 🌦️ Moro em Belém do Pará
 - 🚶‍♂️ Gosto de passear pela cidade
 - 🎥 Assistir a filmes no [cineliberoluxardo](https://www.instagram.com/cineliberoluxardo/)
 - 🔥 Adoro Pokémon
