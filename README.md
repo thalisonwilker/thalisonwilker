@@ -26,6 +26,13 @@ Prefiro a arte no amor do que a arte na guerra.
 - Hacker ético
 - Ethical Social Engineering
 
+  <center>
+
+    ### _"Guns, lots of guns"_
+![image](https://media1.tenor.com/m/OmA1zlHNAJwAAAAd/matrix-keanu-reeves.gif)
+  
+  </center>
+
 ![Thalyson Wilker GitHub stats](https://github-readme-stats.vercel.app/api?username=thalisonwilker&show_icons=true&theme=radical)
 
 ![Linguagens](https://github-readme-stats.vercel.app/api/top-langs/?username=thalisonwilker&layout=donut&theme=dracula)
