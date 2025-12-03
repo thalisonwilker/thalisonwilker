@@ -337,7 +337,6 @@ a {
 /* Desktop maior */
 @media (min-width: 900px) {
   header {
-    flex-direction: row; /* lado a lado em telas grandes */
     align-items: center;
     justify-content: flex-start;
     gap: 24px;
