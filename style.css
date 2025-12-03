@@ -28,13 +28,18 @@ a {
 
 /* Normaliza tipografia */
 body {
-  line-height: 1;
-  font-family: sans-serif;
+  line-height: 1.6;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* SUA CUSTOMIZAÇÃO */
-  background-color: #f0f0f0;
+  background: radial-gradient(circle at top, #ffffff 0, #f0f0f0 50%, #e0e0e0 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  color: #222;
 }
 
 /* Normaliza imagens e vídeos */
@@ -69,55 +74,67 @@ table {
   border-spacing: 0;
 }
 
+/* CONTAINERS PRINCIPAIS */
+header,
+main {
+  width: 100%;
+  max-width: 980px;
+}
+
+/* -------------------------
+   HEADER (mobile-first)
+-------------------------- */
+
 header {
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.2);
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
   display: flex;
+  flex-direction: column; /* mobile-first: coluna */
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 24px;
+  gap: 16px;
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
+/* Foto */
 header img {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  margin-right: 10px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
 }
+
 /* Console estilo terminal Python */
 header .hello-world {
-  margin-top: 15px;
-  font-size: 30px;
+  margin-top: 4px;
+  font-size: 18px; /* menor para telas pequenas */
   font-family: "Courier New", Courier, monospace;
   background-color: #1e1e1e;
   color: #cccccc;
-  padding: 12px 16px;
-  border-radius: 4px;
-  display: flex;
+  padding: 10px 14px;
+  border-radius: 6px;
+  display: inline-flex;
   position: relative;
-  white-space: pre; /* respeita espaços e quebras, igual console */
+  white-space: pre-wrap; /* quebra linha em telas pequenas */
+  word-break: break-word;
 }
 
 /* Cursor piscando */
 header .hello-world::after {
   content: "";
   position: absolute;
-  right: -8px;
+  right: -6px;
   top: 50%;
   transform: translateY(-50%);
-  width: 8px;
-  height: 18px;
+  width: 6px;
+  height: 16px;
   background-color: #cccccc;
   animation: blink 1s steps(2, start) infinite;
 }
@@ -172,5 +189,170 @@ header .hello-world .py-operator {
   color: #d4d4d4;
 }
 
+/* -------------------------
+   MAIN & SEÇÕES
+-------------------------- */
+
 main {
+  margin-top: 24px;
+}
+
+/* Estilo geral das seções */
+main section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Primeira seção com um pouco mais de destaque */
+main section.intro {
+  text-align: center;
+}
+
+/* Títulos */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+/* Parágrafos */
+p {
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* whoami */
+.whoami p + p {
+  margin-top: 4px;
+}
+
+/* Lista de interesses */
+.interesses ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.interesses li {
+  padding-left: 2px;
+}
+
+/* Matrix */
+.matrix {
+  text-align: center;
+}
+
+.matrix h2 {
+  margin-bottom: 12px;
+}
+
+.matrix-gif img {
+  max-width: 360px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* GitHub stats */
+.github-stats h2 {
+  margin-bottom: 12px;
+}
+
+.github-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.github-cards img {
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+/* Citação */
+.citacao blockquote {
+  border-left: 4px solid #333;
+  padding-left: 12px;
+  font-style: italic;
+  color: #444;
+}
+
+.citacao a {
+  text-decoration: underline;
+}
+
+/* GIF final */
+.gif-final {
+  text-align: center;
+}
+
+.gif-final img {
+  max-width: 260px;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+/* Links em geral */
+a {
+  color: #2563eb;
+}
+
+/* -------------------------
+   RESPONSIVIDADE
+-------------------------- */
+
+/* Tablets e acima */
+@media (min-width: 600px) {
+  body {
+    padding: 24px;
+  }
+
+  header {
+    padding: 28px 32px;
+  }
+
+  header img {
+    width: 140px;
+    height: 140px;
+  }
+
+  header .hello-world {
+    font-size: 20px;
+    padding: 12px 18px;
+  }
+
+  main section {
+    padding: 24px 24px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Desktop maior */
+@media (min-width: 900px) {
+  header {
+    flex-direction: row; /* lado a lado em telas grandes */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+  header .hello-world {
+    margin-top: 0;
+  }
+
+  .github-cards {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .github-cards img {
+    flex: 1;
+  }
 }
