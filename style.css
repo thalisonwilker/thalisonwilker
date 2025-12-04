@@ -108,6 +108,14 @@ header img {
   border: 3px solid #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
 }
+header .redes {
+  margin-top: 12px;
+  display: flex;
+}
+
+header .redes svg {
+  margin: 0 8px;
+}
 
 /* Console estilo terminal Python */
 header .hello-world {
