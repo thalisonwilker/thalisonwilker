@@ -33,7 +33,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: radial-gradient(circle at top, #ffffff 0, #f0f0f0 50%, #e0e0e0 100%);
+  background: #2f3640;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@ table {
 header,
 main {
   width: 100%;
-  max-width: 980px;
+  max-width: 1200px;
 }
 
 /* -------------------------
@@ -86,20 +86,18 @@ main {
 -------------------------- */
 
 header {
-  /* Glass effect */
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-
   display: flex;
-  flex-direction: column; /* mobile-first: coluna */
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  padding: 24px;
-  gap: 16px;
+  align-items: center;
+  padding: 10px;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16.3px);
+  -webkit-backdrop-filter: blur(16.3px);
+  border: 1px solid rgba(255, 255, 255, 1);
 }
 
 /* Foto */
@@ -114,35 +112,16 @@ header img {
 /* Console estilo terminal Python */
 header .hello-world {
   margin-top: 4px;
-  font-size: 18px; /* menor para telas pequenas */
+  font-size: 11px; /* menor para telas pequenas */
   font-family: "Courier New", Courier, monospace;
   background-color: #1e1e1e;
   color: #cccccc;
   padding: 10px 14px;
-  border-radius: 6px;
+  border-radius: 10px;
   display: inline-flex;
   position: relative;
   white-space: pre-wrap; /* quebra linha em telas pequenas */
   word-break: break-word;
-}
-
-/* Cursor piscando */
-header .hello-world::after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 16px;
-  background-color: #cccccc;
-  animation: blink 1s steps(2, start) infinite;
-}
-
-@keyframes blink {
-  to {
-    opacity: 0;
-  }
 }
 
 /* ---------- Syntax Highlight Python ---------- */
