@@ -10,9 +10,9 @@ const _jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Thalyson Wilker",
-  description: "Ola pessoas da internet. Eu sou Thalyson Wilker.",
-    generator: 'itkcah.py'
+  title: "Seu Nome | Sobre Mim",
+  description: "Conheça um pouco sobre mim, minha personalidade e o que me move.",
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
