@@ -11,7 +11,7 @@ const _jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Thalyson Wilker",
-  description: "Você sabia que Shinigamis gostam de maçãs?",
+  description: "L, você sabia que Shinigami só come maçãs?",
     generator: 'itkcah.py'
 }
 
