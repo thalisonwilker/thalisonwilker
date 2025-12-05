@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "slug": "ambiente-dev-arch-linux",
+    "title": "Como configurei meu ambiente de dev no Arch Linux",
+    "date": "2024-12-01",
+    "excerpt": "Um guia completo de como deixei meu setup minimalista e produtivo usando i3wm, neovim e tmux.",
+    "content": "# Como configurei meu ambiente de dev no Arch Linux\n\nDepois de anos usando Ubuntu e outras distros mais \"user-friendly\", decidi migrar para o Arch Linux. A curva de aprendizado foi íngreme, mas valeu cada segundo.\n\n## Por que Arch?\n\nA filosofia KISS (Keep It Simple, Stupid) do Arch sempre me atraiu. Você instala apenas o que precisa, nada mais. Isso resulta em um sistema mais leve, rápido e que você realmente entende.\n\n## Meu setup atual\n\n### Window Manager: i3wm\n\nAbandonei os DEs tradicionais em favor do i3. A produtividade com tiling windows é incomparável:\n\n```bash\n# Atalhos que mais uso\nMod+Enter  # abre terminal\nMod+d      # dmenu para abrir apps\nMod+Shift+q # fecha janela\n```\n\n### Editor: Neovim\n\nMigrei do VSCode para o Neovim e nunca olhei para trás. Com LSP nativo e plugins como Telescope e nvim-treesitter, tenho um IDE completo no terminal.\n\n### Terminal: Alacritty + tmux\n\nAlacritty pela velocidade (GPU-accelerated) e tmux para gerenciar sessões. Meus dotfiles estão no GitHub se quiser conferir.\n\n## Conclusão\n\nO investimento de tempo para configurar tudo valeu a pena. Meu workflow nunca foi tão fluido e produtivo.",
+    "tags": ["linux", "produtividade", "dotfiles"],
+    "readTime": "8 min",
+    "category": "tutorial"
+  },
+  {
+    "id": 2,
+    "slug": "automatizando-shell-scripts",
+    "title": "Automatizando tarefas com shell scripts",
+    "date": "2024-11-15",
+    "excerpt": "Scripts que uso no dia a dia para automatizar backups, deploys e tarefas repetitivas.",
+    "content": "# Automatizando tarefas com shell scripts\n\nAutomação é a chave para produtividade. Aqui estão alguns scripts que uso diariamente.\n\n## Backup automatizado\n\n```bash\n#!/bin/bash\n# backup.sh - Backup incremental com rsync\n\nSOURCE=\"$HOME/projects\"\nDEST=\"/mnt/backup/projects\"\nLOG=\"$HOME/.logs/backup.log\"\n\necho \"[$(date)] Iniciando backup...\" >> $LOG\nrsync -avz --delete $SOURCE $DEST >> $LOG 2>&1\necho \"[$(date)] Backup concluído!\" >> $LOG\n```\n\n## Deploy com um comando\n\n```bash\n#!/bin/bash\n# deploy.sh - Deploy para produção\n\necho \"🚀 Iniciando deploy...\"\ngit pull origin main\nnpm run build\npm2 restart all\necho \"✅ Deploy concluído!\"\n```\n\n## Limpeza de sistema\n\n```bash\n#!/bin/bash\n# cleanup.sh\n\n# Limpa cache do pacman\nsudo pacman -Sc --noconfirm\n\n# Remove pacotes órfãos\nsudo pacman -Rns $(pacman -Qtdq) 2>/dev/null\n\n# Limpa logs antigos\nsudo journalctl --vacuum-time=7d\n\necho \"Sistema limpo!\"\n```\n\n## Dicas finais\n\n1. Sempre teste scripts em ambiente seguro primeiro\n2. Use `set -e` para parar em erros\n3. Adicione logs para debug\n4. Versione seus scripts no Git",
+    "tags": ["bash", "automação", "linux"],
+    "readTime": "5 min",
+    "category": "tutorial"
+  },
+  {
+    "id": 3,
+    "slug": "jornada-aprendendo-rust",
+    "title": "Minha jornada aprendendo Rust",
+    "date": "2024-10-28",
+    "excerpt": "Os desafios e aprendizados de migrar de Python para Rust em projetos pessoais.",
+    "content": "# Minha jornada aprendendo Rust\n\nDepois de anos programando em Python, decidi aprender Rust. Aqui está minha experiência.\n\n## Por que Rust?\n\n- **Performance**: Tão rápido quanto C/C++\n- **Segurança**: O borrow checker previne bugs de memória\n- **Modernidade**: Tooling excelente (cargo, rustfmt, clippy)\n\n## Os desafios\n\n### O Borrow Checker\n\nO maior desafio foi entender ownership e borrowing:\n\n```rust\nfn main() {\n    let s1 = String::from(\"hello\");\n    let s2 = s1; // s1 foi movido!\n    // println!(\"{}\", s1); // ERRO!\n    println!(\"{}\", s2); // OK\n}\n```\n\n### Lifetimes\n\nLifetimes foram confusos no início, mas fazem sentido depois:\n\n```rust\nfn longest<'a>(x: &'a str, y: &'a str) -> &'a str {\n    if x.len() > y.len() { x } else { y }\n}\n```\n\n## O que construí\n\n1. **CLI para gerenciar dotfiles** - Meu primeiro projeto real\n2. **API REST com Actix** - Performance incrível\n3. **Contribuições open source** - Pequenos PRs para praticar\n\n## Recursos que recomendo\n\n- The Rust Book (oficial e gratuito)\n- Rustlings (exercícios práticos)\n- Rust by Example\n\n## Conclusão\n\nRust tem uma curva de aprendizado íngreme, mas as garantias de segurança e performance valem o esforço.",
+    "tags": ["rust", "programação", "aprendizado"],
+    "readTime": "6 min",
+    "category": "experiência"
+  },
+  {
+    "id": 4,
+    "slug": "configurando-neovim-2024",
+    "title": "Configurando Neovim do zero em 2024",
+    "date": "2024-10-10",
+    "excerpt": "Setup completo do Neovim com LSP, autocompletion, e plugins essenciais para desenvolvimento.",
+    "content": "# Configurando Neovim do zero em 2024\n\nUm guia atualizado para transformar o Neovim em uma IDE poderosa.\n\n## Estrutura de arquivos\n\n```\n~/.config/nvim/\n├── init.lua\n├── lua/\n│   ├── core/\n│   │   ├── options.lua\n│   │   ├── keymaps.lua\n│   │   └── autocmds.lua\n│   └── plugins/\n│       ├── init.lua\n│       ├── lsp.lua\n│       └── telescope.lua\n```\n\n## Plugins essenciais\n\n- **lazy.nvim**: Gerenciador de plugins moderno\n- **nvim-lspconfig**: Configuração de LSP\n- **telescope.nvim**: Fuzzy finder poderoso\n- **nvim-treesitter**: Syntax highlighting avançado\n- **nvim-cmp**: Autocompletion\n\n## Configuração básica\n\n```lua\n-- options.lua\nvim.opt.number = true\nvim.opt.relativenumber = true\nvim.opt.tabstop = 2\nvim.opt.shiftwidth = 2\nvim.opt.expandtab = true\nvim.opt.termguicolors = true\n```\n\nMeus dotfiles completos estão disponíveis no GitHub!",
+    "tags": ["neovim", "produtividade", "dotfiles"],
+    "readTime": "10 min",
+    "category": "tutorial"
+  },
+  {
+    "id": 5,
+    "slug": "porque-uso-linux",
+    "title": "Por que uso Linux há 5 anos",
+    "date": "2024-09-20",
+    "excerpt": "Reflexões sobre liberdade, privacidade e controle sobre meu próprio computador.",
+    "content": "# Por que uso Linux há 5 anos\n\nEm 2019, fiz a mudança definitiva para Linux. Aqui está o porquê nunca voltei.\n\n## Liberdade\n\nNo Linux, eu decido o que roda no meu computador. Sem telemetria forçada, sem atualizações que reiniciam no meio do trabalho.\n\n## Privacidade\n\nMeus dados são meus. Ponto final.\n\n## Performance\n\nMeu laptop de 2018 roda melhor com Linux do que rodava com Windows quando era novo.\n\n## A comunidade\n\nA comunidade open source é incrível. Sempre tem alguém disposto a ajudar.\n\n## Conclusão\n\nLinux não é para todos, mas para mim, é perfeito.",
+    "tags": ["linux", "opinião", "open-source"],
+    "readTime": "4 min",
+    "category": "experiência"
+  },
+  {
+    "id": 6,
+    "slug": "docker-para-iniciantes",
+    "title": "Docker para desenvolvedores iniciantes",
+    "date": "2024-09-05",
+    "excerpt": "Entenda containers de uma vez por todas com exemplos práticos do dia a dia.",
+    "content": "# Docker para desenvolvedores iniciantes\n\nDocker parece complicado, mas não precisa ser. Vamos desmistificar.\n\n## O que é um container?\n\nPense em um container como uma caixa isolada que contém tudo que sua aplicação precisa para rodar.\n\n## Comandos básicos\n\n```bash\n# Rodar um container\ndocker run -d -p 3000:3000 minha-app\n\n# Listar containers\ndocker ps\n\n# Parar container\ndocker stop <id>\n```\n\n## Dockerfile básico\n\n```dockerfile\nFROM node:20-alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm install\nCOPY . .\nEXPOSE 3000\nCMD [\"npm\", \"start\"]\n```\n\n## Docker Compose\n\nPara múltiplos serviços, use docker-compose:\n\n```yaml\nversion: '3.8'\nservices:\n  app:\n    build: .\n    ports:\n      - '3000:3000'\n  db:\n    image: postgres:15\n    environment:\n      POSTGRES_PASSWORD: secret\n```\n\nAgora você tem o básico para começar!",
+    "tags": ["docker", "devops", "tutorial"],
+    "readTime": "7 min",
+    "category": "tutorial"
+  }
+]

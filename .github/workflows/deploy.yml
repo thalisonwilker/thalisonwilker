@@ -1,0 +1,67 @@
+name: Deploy website 🚀
+
+on:
+  # Faz deploy a cada push na main
+  push:
+    branches: ['main']
+
+  # Permite rodar manualmente
+  workflow_dispatch:
+
+# Permissões para o GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Só um deploy por vez
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.repository == 'thalisonwilker/thalisonwilker'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --force
+
+      - name: Build (Next.js)
+        run: npm run build
+        # se o seu build NÃO faz export estático,
+        # você pode usar:
+        # run: |
+        #   npm run build
+        #   npx next export
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 👉 pasta gerada pelo next export
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
