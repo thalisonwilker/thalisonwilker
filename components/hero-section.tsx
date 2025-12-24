@@ -94,8 +94,8 @@ export function HeroSection() {
               </span>
               <br />
               <span className="ml-2 sm:ml-4">
-                paixoes: [<span className="text-accent">"cafe"</span>, <span className="text-accent">"musica"</span>,{" "}
-                <span className="text-accent">"conversas"</span>]
+                paixoes: [<span className="text-accent">"cafe"</span>, <span className="text-accent">"samba"</span>,{" "}
+                <span className="text-accent">"conversas"</span>, <span className="text-accent">"códigos"</span>]
               </span>
               <br />
               {"}"}
