@@ -2,39 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Calendar, MapPin, Users, ExternalLink } from "lucide-react";
-
-const events = [
-  {
-    id: 1,
-    title: "Linux Day 2024",
-    date: "2024-12-15",
-    location: "São Paulo, SP",
-    type: "Palestra",
-    status: "upcoming",
-    description: "Palestra sobre automação de infraestrutura com Ansible",
-  },
-  {
-    id: 2,
-    title: "Dev Summit Brasil",
-    date: "2024-11-20",
-    location: "Online",
-    type: "Workshop",
-    status: "completed",
-    description: "Workshop de 2h sobre CI/CD com GitHub Actions",
-  },
-  {
-    id: 3,
-    title: "Meetup Open Source",
-    date: "2024-10-05",
-    location: "Rio de Janeiro, RJ",
-    type: "Meetup",
-    status: "completed",
-    description: "Apresentação do meu projeto open source de dotfiles",
-  },
-];
+import eventsData from "@/data/events.json";
 
 export function EventsSection() {
+  const events = eventsData;
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedYear, setSelectedYear] = useState<string>(() =>
+    String(new Date(events[0]?.date ?? new Date().toISOString()).getFullYear())
+  );
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -53,6 +28,16 @@ export function EventsSection() {
 
     return () => observer.disconnect();
   }, []);
+
+  const allYears = Array.from(
+    new Set(events.map((event) => new Date(event.date).getFullYear()))
+  )
+    .sort((a, b) => b - a)
+    .map(String);
+
+  const filteredEvents = events.filter((event) => {
+    return new Date(event.date).getFullYear().toString() === selectedYear;
+  });
 
   return (
     <section
@@ -77,18 +62,30 @@ export function EventsSection() {
           <p className="text-muted-foreground mt-2 font-mono text-xs sm:text-sm">
             // onde você pode me encontrar
           </p>
+
+          <div className="mt-6 flex flex-wrap items-center gap-2 text-[10px] sm:text-xs font-mono text-muted-foreground">
+            <span>filtrar por ano:</span>
+            {allYears.map((year) => (
+              <button
+                key={year}
+                onClick={() => setSelectedYear(year)}
+                className={`rounded-full px-3 py-1 border transition-colors ${
+                  selectedYear === year
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border hover:border-primary hover:text-primary"
+                }`}
+              >
+                {year}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div
-          className="relative"
-          style={{
-            display: "none",
-          }}
-        >
+        <div className="relative">
           <div className="absolute left-2 sm:left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2" />
 
           <div className="space-y-6 sm:space-y-8">
-            {events.map((event, index) => (
+            {filteredEvents.map((event, index) => (
               <div
                 key={event.id}
                 className={`relative flex flex-col md:flex-row gap-4 sm:gap-8 ${

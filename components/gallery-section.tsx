@@ -3,47 +3,24 @@
 import { useEffect, useRef, useState } from "react";
 import { ImageIcon, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-
-const galleryImages = [
-  {
-    id: 1,
-    src: "/workspace-setup-with-multiple-monitors-and-linux-t.jpg",
-    alt: "Meu setup de trabalho",
-    caption: "setup.png",
-  },
-  {
-    id: 2,
-    src: "/hackathon-event-with-developers-coding.jpg",
-    alt: "Hackathon 2024",
-    caption: "hackathon.jpg",
-  },
-  {
-    id: 3,
-    src: "/coffee-shop-laptop-coding-session-cozy.jpg",
-    alt: "Coding em cafeteria",
-    caption: "coffee_code.jpg",
-  },
-  {
-    id: 4,
-    src: "/tech-conference-speaker-on-stage.jpg",
-    alt: "Palestra no Dev Summit",
-    caption: "talk.png",
-  },
-  {
-    id: 5,
-    src: "/hiking-nature-trail-mountains-adventure.jpg",
-    alt: "Trilha no fim de semana",
-    caption: "nature.jpg",
-  },
-  {
-    id: 6,
-    src: "/mechanical-keyboard-rgb-lights-desk.jpg",
-    alt: "Novo teclado mecânico",
-    caption: "keyboard.png",
-  },
-];
+import galleryImages from "@/data/gallery.json";
 
 export function GallerySection() {
+  const gallery = galleryImages.map((image) => ({
+    ...image,
+    year: image.year ?? new Date().getFullYear(),
+  }));
+  const allYears = [...new Set(gallery.map((image) => image.year))].sort(
+    (a, b) => b - a
+  );
+  const allTags = [
+    "Todas",
+    ...Array.from(new Set(gallery.flatMap((image) => image.tags ?? []))).sort(),
+  ];
+  const [selectedYear, setSelectedYear] = useState<number>(
+    allYears[0] ?? new Date().getFullYear()
+  );
+  const [selectedTag, setSelectedTag] = useState<string>("Todas");
   const [isVisible, setIsVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -65,17 +42,21 @@ export function GallerySection() {
     return () => observer.disconnect();
   }, []);
 
+  const filteredGallery = gallery.filter(
+    (image) =>
+      image.year === selectedYear &&
+      (selectedTag === "Todas" || image.tags?.includes(selectedTag))
+  );
+
   const openLightbox = (index: number) => setSelectedImage(index);
   const closeLightbox = () => setSelectedImage(null);
   const nextImage = () =>
     setSelectedImage((prev) =>
-      prev !== null ? (prev + 1) % galleryImages.length : null
+      prev !== null ? (prev + 1) % filteredGallery.length : null
     );
   const prevImage = () =>
     setSelectedImage((prev) =>
-      prev !== null
-        ? (prev - 1 + galleryImages.length) % galleryImages.length
-        : null
+      prev !== null ? (prev - 1 + filteredGallery.length) % filteredGallery.length : null
     );
 
   useEffect(() => {
@@ -88,7 +69,11 @@ export function GallerySection() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedImage]);
+  }, [selectedImage, filteredGallery.length]);
+
+  useEffect(() => {
+    setSelectedImage(null);
+  }, [selectedYear]);
 
   return (
     <section
@@ -122,15 +107,43 @@ export function GallerySection() {
           <p className="text-muted-foreground mt-2 font-mono text-xs sm:text-sm">
             // momentos capturados
           </p>
+
+          <div className="mt-5 flex flex-wrap gap-2 text-[10px] sm:text-xs font-mono text-muted-foreground">
+            <span>filtrar por ano:</span>
+            {allYears.map((year) => (
+              <button
+                key={year}
+                onClick={() => setSelectedYear(year)}
+                className={`rounded-full px-3 py-1 border transition-colors ${
+                  selectedYear === year
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border hover:border-primary hover:text-primary"
+                }`}
+              >
+                {year}
+              </button>
+            ))}
+          </div>
+          <div className="mt-2 flex flex-wrap gap-2 text-[10px] sm:text-xs font-mono text-muted-foreground">
+            <span>filtrar por tags:</span>
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setSelectedTag(tag)}
+                className={`rounded-full px-3 py-1 border transition-colors ${
+                  selectedTag === tag
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border hover:border-primary hover:text-primary"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div
-          className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4"
-          style={{
-            display: "none",
-          }}
-        >
-          {galleryImages.map((image, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4">
+          {filteredGallery.map((image, index) => (
             <div
               key={image.id}
               onClick={() => openLightbox(index)}
@@ -196,17 +209,17 @@ export function GallerySection() {
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={galleryImages[selectedImage].src || "/placeholder.svg"}
-              alt={galleryImages[selectedImage].alt}
+              src={gallery[selectedImage].src || "/placeholder.svg"}
+              alt={gallery[selectedImage].alt}
               fill
               className="object-contain"
             />
             <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-background to-transparent">
               <span className="text-primary font-mono text-xs sm:text-sm">
-                {galleryImages[selectedImage].caption}
+                {gallery[selectedImage].caption}
               </span>
               <p className="text-foreground text-sm sm:text-base">
-                {galleryImages[selectedImage].alt}
+                {gallery[selectedImage].alt}
               </p>
             </div>
           </div>

@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
+const INSTAGRAM_URL = "https://www.instagram.com/itkcah.py"
+
 const socials = [
   {
     name: "LinkedIn",
@@ -23,7 +25,7 @@ const socials = [
   {
     name: "Instagram",
     icon: Instagram,
-    url: "https://instagram.com/itkcah.py",
+    url: INSTAGRAM_URL,
     username: "@itkcah.py",
     description: "Fotos e momentos do dia a dia",
     color: "hover:border-[#E4405F] hover:text-[#E4405F]",

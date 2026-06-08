@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Github, Linkedin, Instagram, Terminal } from "lucide-react"
 import { useEffect, useState } from "react"
 
@@ -103,35 +104,44 @@ export function HeroSection() {
             </div>
 
             <div
-              className={`flex items-center justify-center lg:justify-start gap-2 sm:gap-3 opacity-0 ${isVisible ? "animate-fade-in-up delay-300" : ""}`}
+              className={`flex flex-col items-center justify-center lg:items-start gap-3 opacity-0 ${isVisible ? "animate-fade-in-up delay-300" : ""}`}
             >
-              <a
-                href="https://github.com/thalisonwilker"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-card border border-primary/50 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:glow hover:scale-110 transition-all duration-300"
-                aria-label="GitHub"
+              <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3">
+                <a
+                  href="https://github.com/thalisonwilker"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 sm:w-12 sm:h-12 bg-card border border-primary/50 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:glow hover:scale-110 transition-all duration-300"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+                <a
+                  href="https://linkedin.com/in/thalysonwilker"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 sm:w-12 sm:h-12 bg-card border border-primary/50 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:glow hover:scale-110 transition-all duration-300"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/itkcah.py"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 sm:w-12 sm:h-12 bg-card border border-primary/50 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:glow hover:scale-110 transition-all duration-300"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+              </div>
+
+              <Link
+                href="/cartola"
+                className="inline-flex items-center justify-center rounded-full border border-primary bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:shadow-lg"
               >
-                <Github className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
-              <a
-                href="https://linkedin.com/in/thalysonwilker"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-card border border-primary/50 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:glow hover:scale-110 transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
-              <a
-                href="https://instagram.com/itkcah.py"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-card border border-primary/50 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:glow hover:scale-110 transition-all duration-300"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
+                Ver página do Cartola
+              </Link>
             </div>
           </div>
         </div>

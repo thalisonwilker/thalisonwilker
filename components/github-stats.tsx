@@ -2,6 +2,7 @@
 
 import { Activity, GitBranch, Star, Users } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import githubProjectsData from "@/data/github-projects.json";
 
 interface GithubStatsProps {
   username: string;
@@ -12,9 +13,12 @@ export function GithubStats({ username }: GithubStatsProps) {
   const [counters, setCounters] = useState([0, 0, 0, 0]);
   const sectionRef = useRef<HTMLElement>(null);
 
+  const projects = githubProjectsData;
+  const totalStars = projects.reduce((sum, repo) => sum + repo.stars, 0);
+
   const stats = [
-    { icon: GitBranch, value: 42, label: "repos" },
-    { icon: Star, value: 128, label: "stars" },
+    { icon: GitBranch, value: projects.length, label: "repos" },
+    { icon: Star, value: totalStars, label: "stars" },
     { icon: Users, value: 89, label: "followers" },
     { icon: Activity, value: 1200, label: "commits" },
   ];
@@ -122,6 +126,37 @@ export function GithubStats({ username }: GithubStatsProps) {
                 />
               </div>
             </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {projects.map((repo, index) => (
+            <a
+              key={repo.id}
+              href={repo.url}
+              target="_blank"
+              rel="noreferrer"
+              className={`bg-card border border-border p-4 sm:p-5 hover:border-primary transition-all duration-300 ${
+                isVisible ? "animate-fade-in-up" : "opacity-0"
+              }`}
+              style={{ animationDelay: `${(index + 1) * 80}ms` }}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-base sm:text-lg font-semibold text-foreground">
+                  {repo.name}
+                </h3>
+                <span className="text-[10px] sm:text-xs font-mono text-muted-foreground">
+                  {repo.language}
+                </span>
+              </div>
+              <p className="text-muted-foreground text-sm sm:text-base mb-3">
+                {repo.description}
+              </p>
+              <span className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono text-primary">
+                <Star className="w-3 h-3" />
+                {repo.stars} stars
+              </span>
+            </a>
           ))}
         </div>
       </div>
