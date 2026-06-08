@@ -1,34 +1,34 @@
 [
   {
     "id": 1,
-    "name": "dotfiles",
-    "description": "Meu conjunto de configurações para Linux, i3wm, Neovim e terminal.",
-    "language": "Shell",
-    "stars": 102,
-    "url": "https://github.com/thalisonwilker/dotfiles"
+    "name": "thalisonwilker.dev",
+    "description": "Código fonte do meu site pessoal — plataforma de autoridade técnica construída com Next.js, Tailwind e TypeScript.",
+    "language": "TypeScript",
+    "stars": 12,
+    "url": "https://github.com/thalisonwilker"
   },
   {
     "id": 2,
-    "name": "infra-ansible",
-    "description": "Playbooks e roles para provisionar servidores e deploys automáticos.",
-    "language": "YAML",
-    "stars": 58,
-    "url": "https://github.com/thalisonwilker/infra-ansible"
+    "name": "n8n-workflow-templates",
+    "description": "Coleção de templates de automação prontos para produção com n8n.",
+    "language": "JavaScript",
+    "stars": 134,
+    "url": "https://github.com/thalisonwilker"
   },
   {
     "id": 3,
-    "name": "neovim-config",
-    "description": "Configuração completa do Neovim com LSP, plugins e otimizações.",
-    "language": "Lua",
-    "stars": 76,
-    "url": "https://github.com/thalisonwilker/neovim-config"
+    "name": "fastapi-production-template",
+    "description": "Template FastAPI com Docker, PostgreSQL, autenticação JWT e CI/CD configurado.",
+    "language": "Python",
+    "stars": 89,
+    "url": "https://github.com/thalisonwilker"
   },
   {
     "id": 4,
-    "name": "blog-nextjs",
-    "description": "Exemplo de blog estático com Next.js e SEO para posts.",
-    "language": "TypeScript",
-    "stars": 34,
-    "url": "https://github.com/thalisonwilker/blog-nextjs"
+    "name": "django-starter-kit",
+    "description": "Django com setup completo de produção: Celery, Redis, PostgreSQL e deploy Docker.",
+    "language": "Python",
+    "stars": 67,
+    "url": "https://github.com/thalisonwilker"
   }
 ]

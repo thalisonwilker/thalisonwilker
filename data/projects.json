@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "API de Automação com IA",
+    "description": "API REST construída com FastAPI que integra agentes de IA para automação de workflows de negócio. Processa requests, orquestra agentes e retorna resultados estruturados.",
+    "category": "IA / Backend",
+    "stack": ["Python", "FastAPI", "LangGraph", "PostgreSQL", "Docker"],
+    "impact": "Reduziu em 70% o tempo de processamento de solicitações manuais",
+    "stars": 48,
+    "forks": 12,
+    "url": "https://github.com/thalisonwilker",
+    "featured": true,
+    "status": "ativo"
+  },
+  {
+    "id": 2,
+    "name": "n8n Workflow Templates",
+    "description": "Coleção de templates de automação para n8n cobrindo integrações com APIs populares, processamento de dados e notificações inteligentes.",
+    "category": "Automação",
+    "stack": ["n8n", "JavaScript", "Webhooks", "REST APIs"],
+    "impact": "Mais de 200 downloads e adotados por equipes de 3 países",
+    "stars": 134,
+    "forks": 31,
+    "url": "https://github.com/thalisonwilker",
+    "featured": true,
+    "status": "ativo"
+  },
+  {
+    "id": 3,
+    "name": "Django Template Pro",
+    "description": "Template de projeto Django com configurações de produção, autenticação, PostgreSQL, Celery, Docker e CI/CD já configurados.",
+    "category": "Backend",
+    "stack": ["Python", "Django", "PostgreSQL", "Redis", "Docker", "GitHub Actions"],
+    "impact": "Economiza de 2-3 dias de setup em novos projetos Django",
+    "stars": 89,
+    "forks": 27,
+    "url": "https://github.com/thalisonwilker",
+    "featured": true,
+    "status": "ativo"
+  },
+  {
+    "id": 4,
+    "name": "dotfiles",
+    "description": "Meu conjunto de configurações para Linux, i3wm, Neovim e terminal. Setup completo e reproducível via script de instalação.",
+    "category": "DevTools",
+    "stack": ["Shell", "Lua", "Python", "Arch Linux"],
+    "impact": null,
+    "stars": 102,
+    "forks": 18,
+    "url": "https://github.com/thalisonwilker/dotfiles",
+    "featured": false,
+    "status": "ativo"
+  },
+  {
+    "id": 5,
+    "name": "infra-ansible",
+    "description": "Playbooks e roles Ansible para provisionar servidores, configurar ambientes e realizar deploys automáticos.",
+    "category": "DevOps",
+    "stack": ["YAML", "Ansible", "Linux", "Docker"],
+    "impact": "Provisionamento de servidor em menos de 5 minutos",
+    "stars": 58,
+    "forks": 14,
+    "url": "https://github.com/thalisonwilker/infra-ansible",
+    "featured": false,
+    "status": "ativo"
+  },
+  {
+    "id": 6,
+    "name": "K8s Monitoring Stack",
+    "description": "Stack completa de observabilidade para Kubernetes com Prometheus, Grafana e alertas configurados via Helm charts.",
+    "category": "DevOps",
+    "stack": ["Kubernetes", "Helm", "Prometheus", "Grafana", "YAML"],
+    "impact": null,
+    "stars": 41,
+    "forks": 9,
+    "url": "https://github.com/thalisonwilker",
+    "featured": false,
+    "status": "em desenvolvimento"
+  }
+]

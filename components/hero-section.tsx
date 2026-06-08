@@ -1,19 +1,33 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
-import { Github, Linkedin, Instagram, Terminal } from "lucide-react"
+import { Github, Linkedin, Instagram, Terminal, ArrowRight, MapPin, Cpu, Users } from "lucide-react"
 import { useEffect, useState } from "react"
+
+const taglines = [
+  "Especialista em Python, IA e Arquitetura de Sistemas",
+  "10+ anos construindo software que escala",
+  "Organizador do Python Norte & DevOpsDays Belém",
+  "Building the future from Amazônia 🌿",
+]
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
+  const [taglineIndex, setTaglineIndex] = useState(0)
 
   useEffect(() => {
     setIsVisible(true)
+    const interval = setInterval(() => {
+      setTaglineIndex((i) => (i + 1) % taglines.length)
+    }, 3500)
+    return () => clearInterval(interval)
   }, [])
 
   return (
     <section className="min-h-screen flex items-center bg-background relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
+      {/* Grid background */}
+      <div className="absolute inset-0 opacity-[0.04]">
         <div
           className="absolute inset-0"
           style={{
@@ -23,125 +37,161 @@ export function HeroSection() {
         />
       </div>
 
+      {/* Scanline */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="scanline absolute inset-x-0 h-px bg-primary/30" />
+        <div className="scanline absolute inset-x-0 h-px bg-primary/20" />
       </div>
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-8 md:py-16 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-20">
+      {/* Glow blobs */}
+      <div className="absolute top-1/4 -right-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-40 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-12 md:py-20 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+
+          {/* Photo frame */}
           <div className={`flex-shrink-0 opacity-0 ${isVisible ? "animate-fade-in-left" : ""}`}>
             <div className="relative group animate-float">
-              <div className="absolute -inset-1 bg-primary/50 animate-pulse-glow" />
-              <div className="absolute -inset-1 bg-accent/30 translate-x-1 translate-y-1" />
+              <div className="absolute -inset-2 bg-gradient-to-br from-primary/40 to-accent/30 animate-pulse-glow" />
+              <div className="absolute -inset-2 bg-accent/20 translate-x-2 translate-y-2" />
 
-              <img
-                src="https://github.com/thalisonwilker.png"
-                alt="Minha foto"
-                className="relative w-48 h-64 sm:w-56 sm:h-72 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] object-cover grayscale group-hover:grayscale-0 transition-all duration-500 border-2 border-primary"
-              />
-
-              <div className="absolute inset-0 bg-background/20 pointer-events-none mix-blend-overlay" />
-              <div className="absolute top-0 left-0 right-0 bg-background/95 p-1.5 sm:p-2 border-b border-primary flex items-center gap-2">
-                <div className="flex gap-1 sm:gap-1.5">
-                  <span className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500/80 rounded-full" />
-                  <span className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500/80 rounded-full" />
-                  <span className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500/80 rounded-full" />
+              <div className="relative border-2 border-primary overflow-hidden">
+                {/* Terminal bar */}
+                <div className="absolute top-0 left-0 right-0 bg-background/95 p-2 border-b border-primary flex items-center gap-2 z-10">
+                  <div className="flex gap-1.5">
+                    <span className="w-2.5 h-2.5 bg-red-500/80 rounded-full" />
+                    <span className="w-2.5 h-2.5 bg-yellow-500/80 rounded-full" />
+                    <span className="w-2.5 h-2.5 bg-green-500/80 rounded-full" />
+                  </div>
+                  <code className="text-[10px] text-muted-foreground ml-1 truncate">
+                    thalysonwilker@belempa ~
+                  </code>
                 </div>
-                <code className="text-[10px] sm:text-xs text-muted-foreground ml-1 sm:ml-2 truncate">
-                  itkcah@arch ~
-                </code>
-              </div>
 
-              <div className="absolute bottom-0 left-0 right-0 bg-background/95 p-2 sm:p-3 border-t border-primary">
-                <code className="text-[10px] sm:text-xs text-primary">
-                  <span className="text-green-500">itkcah@arch</span>
-                  <span className="text-muted-foreground">:</span>
-                  <span className="text-accent">~</span>
-                  <span className="text-muted-foreground">$</span> traceroute google.com
-                </code>
-              </div>
+                <Image
+                  src="https://github.com/thalisonwilker.png"
+                  alt="Thalyson Wilker — Engenheiro de Software"
+                  width={320}
+                  height={448}
+                  priority
+                  className="w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-[22rem] lg:w-72 lg:h-[26rem] object-cover grayscale group-hover:grayscale-0 transition-all duration-500 mt-9"
+                />
 
-              <div
-                className="absolute inset-0 pointer-events-none opacity-30"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)",
-                }}
-              />
+                {/* Bottom terminal */}
+                <div className="absolute bottom-0 left-0 right-0 bg-background/95 p-2.5 border-t border-primary">
+                  <code className="text-[10px] text-primary">
+                    <span className="text-green-500">thalyson</span>
+                    <span className="text-muted-foreground">@</span>
+                    <span className="text-accent">belém</span>
+                    <span className="text-muted-foreground"> ~$ </span>
+                    <span className="text-foreground">whoami</span>
+                    <span className="animate-pulse ml-1">▋</span>
+                  </code>
+                </div>
+
+                {/* Scanlines overlay */}
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-20"
+                  style={{
+                    backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px)",
+                  }}
+                />
+              </div>
             </div>
           </div>
 
+          {/* Content */}
           <div className="flex-1 text-center lg:text-left w-full">
-            <div
-              className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 border border-primary text-primary text-xs sm:text-sm font-medium mb-4 sm:mb-6 opacity-0 ${isVisible ? "animate-fade-in-up" : ""}`}
-            >
-              <Terminal className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="truncate">cd ~/home/sobre-mim</span>
+            {/* Location badge */}
+            <div className={`inline-flex items-center gap-2 px-3 py-1.5 bg-card border border-border text-muted-foreground text-xs font-mono mb-5 opacity-0 ${isVisible ? "animate-fade-in-up" : ""}`}>
+              <MapPin className="w-3 h-3 text-primary" />
+              <span>Belém, PA — Amazônia, Brasil</span>
             </div>
 
-            <h1
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 tracking-tight opacity-0 font-mono ${isVisible ? "animate-fade-in-up delay-100" : ""}`}
-            >
-              <span className="text-primary glow-text animate-glitch">#</span> Thalyson Wilker
+            {/* Name */}
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 tracking-tight opacity-0 font-mono ${isVisible ? "animate-fade-in-up delay-100" : ""}`}>
+              <span className="text-primary glow-text">Thalyson</span>
+              <br />
+              <span>Wilker</span>
             </h1>
 
-            <div
-              className={`text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed mb-6 sm:mb-8 opacity-0 mx-auto lg:mx-0 ${isVisible ? "animate-fade-in-up delay-200" : ""}`}
-            >
-              <span className="text-primary">const</span> itkcah = {"{"}
-              <br />
-              <span className="ml-2 sm:ml-4">
-                curiosidade: <span className="text-accent">"infinita"</span>,
-              </span>
-              <br />
-              <span className="ml-2 sm:ml-4">
-                paixoes: [<span className="text-accent">"cafe"</span>, <span className="text-accent">"samba"</span>,{" "}
-                <span className="text-accent">"conversas"</span>, <span className="text-accent">"códigos"</span>]
-              </span>
-              <br />
-              {"}"}
-              <span className="animate-pulse">_</span>
+            {/* Rotating tagline */}
+            <div className={`mb-6 opacity-0 h-7 ${isVisible ? "animate-fade-in-up delay-200" : ""}`}>
+              <p key={taglineIndex} className="text-primary font-mono text-sm sm:text-base md:text-lg animate-fade-in-up">
+                {taglines[taglineIndex]}
+              </p>
             </div>
 
-            <div
-              className={`flex flex-col items-center justify-center lg:items-start gap-3 opacity-0 ${isVisible ? "animate-fade-in-up delay-300" : ""}`}
-            >
-              <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3">
-                <a
-                  href="https://github.com/thalisonwilker"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-card border border-primary/50 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:glow hover:scale-110 transition-all duration-300"
-                  aria-label="GitHub"
-                >
-                  <Github className="w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/thalysonwilker"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-card border border-primary/50 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:glow hover:scale-110 transition-all duration-300"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
-                <a
-                  href="https://www.instagram.com/itkcah.py"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-card border border-primary/50 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:glow hover:scale-110 transition-all duration-300"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
-              </div>
+            {/* Description */}
+            <p className={`text-muted-foreground text-sm sm:text-base max-w-xl leading-relaxed mb-8 mx-auto lg:mx-0 opacity-0 ${isVisible ? "animate-fade-in-up delay-300" : ""}`}>
+              Engenheiro de Software com mais de 10 anos construindo sistemas robustos, automatizando processos críticos e liderando comunidades tech no Norte do Brasil. Especialista em Python, IA e Arquitetura de Sistemas.
+            </p>
 
+            {/* Stats row */}
+            <div className={`flex items-center justify-center lg:justify-start gap-6 mb-8 opacity-0 ${isVisible ? "animate-fade-in-up delay-400" : ""}`}>
+              <div className="text-center lg:text-left">
+                <div className="text-2xl font-bold text-primary font-mono">10+</div>
+                <div className="text-xs text-muted-foreground font-mono">anos de exp.</div>
+              </div>
+              <div className="w-px h-8 bg-border" />
+              <div className="text-center lg:text-left">
+                <div className="flex items-center gap-1.5 justify-center lg:justify-start">
+                  <Cpu className="w-4 h-4 text-accent" />
+                  <div className="text-2xl font-bold text-accent font-mono">IA</div>
+                </div>
+                <div className="text-xs text-muted-foreground font-mono">& Automação</div>
+              </div>
+              <div className="w-px h-8 bg-border" />
+              <div className="text-center lg:text-left">
+                <div className="flex items-center gap-1.5 justify-center lg:justify-start">
+                  <Users className="w-4 h-4 text-green-400" />
+                  <div className="text-2xl font-bold text-green-400 font-mono">2x</div>
+                </div>
+                <div className="text-xs text-muted-foreground font-mono">org. de eventos</div>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className={`flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 mb-6 opacity-0 ${isVisible ? "animate-fade-in-up delay-500" : ""}`}>
               <Link
-                href="/cartola"
-                className="inline-flex items-center justify-center rounded-full border border-primary bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:shadow-lg"
+                href="/projetos"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm font-medium hover:glow hover:scale-105 transition-all duration-300"
               >
-                Ver página do Cartola
+                Ver Projetos
+                <ArrowRight className="w-4 h-4" />
               </Link>
+              <Link
+                href="/sobre"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-card border border-border text-foreground font-mono text-sm font-medium hover:border-primary transition-all duration-300"
+              >
+                <Terminal className="w-4 h-4 text-primary" />
+                Sobre mim
+              </Link>
+              <Link
+                href="/blog"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-card border border-primary/40 text-primary font-mono text-sm font-medium hover:bg-primary/10 transition-all duration-300"
+              >
+                Ler Blog
+              </Link>
+            </div>
+
+            {/* Social icons */}
+            <div className={`flex items-center justify-center lg:justify-start gap-3 opacity-0 ${isVisible ? "animate-fade-in-up delay-600" : ""}`}>
+              <a href="https://github.com/thalisonwilker" target="_blank" rel="noopener noreferrer"
+                className="w-9 h-9 bg-card border border-border text-muted-foreground flex items-center justify-center hover:border-primary hover:text-primary hover:scale-110 transition-all duration-300"
+                aria-label="GitHub">
+                <Github className="w-4 h-4" />
+              </a>
+              <a href="https://linkedin.com/in/thalysonwilker" target="_blank" rel="noopener noreferrer"
+                className="w-9 h-9 bg-card border border-border text-muted-foreground flex items-center justify-center hover:border-[#0A66C2] hover:text-[#0A66C2] hover:scale-110 transition-all duration-300"
+                aria-label="LinkedIn">
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a href="https://www.instagram.com/itkcah.py" target="_blank" rel="noopener noreferrer"
+                className="w-9 h-9 bg-card border border-border text-muted-foreground flex items-center justify-center hover:border-[#E4405F] hover:text-[#E4405F] hover:scale-110 transition-all duration-300"
+                aria-label="Instagram">
+                <Instagram className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
