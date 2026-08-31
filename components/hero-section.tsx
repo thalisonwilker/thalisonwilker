@@ -69,12 +69,12 @@ export function HeroSection() {
                 </div>
 
                 <Image
-                  src="https://github.com/thalisonwilker.png"
-                  alt="Thalyson Wilker — Engenheiro de Software"
-                  width={320}
-                  height={448}
+                  src="/hero-main.jpg"
+                  alt="Thalyson Wilker com robô humanoide no Startup Summit"
+                  width={600}
+                  height={800}
                   priority
-                  className="w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-[22rem] lg:w-72 lg:h-[26rem] object-cover grayscale group-hover:grayscale-0 transition-all duration-500 mt-9"
+                  className="w-48 h-64 sm:w-56 sm:h-72 md:w-64 md:h-[22rem] lg:w-72 lg:h-[26rem] object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 mt-9"
                 />
 
                 {/* Bottom terminal */}
